@@ -1,4 +1,4 @@
-package Dsaapt;
+package dsaapt;
 
 import java.util.Scanner;
 
