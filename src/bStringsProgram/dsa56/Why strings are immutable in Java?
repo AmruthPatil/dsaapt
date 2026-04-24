@@ -1,0 +1,97 @@
+In Java, **Strings are immutable** means once a String object is created, its value **cannot be changed**.
+
+Example:
+
+```java
+String s = "Hello";
+s = s + " World";
+System.out.println(s);
+```
+
+Here `"Hello"` is not changed. A **new String object** `"Hello World"` is created.
+
+### Why Strings are immutable in Java? ⚡
+
+1. **Security** 🔐
+   Strings are used in:
+
+* database URLs
+* usernames/passwords
+* file paths
+* network connections
+
+If mutable, hackers could change them.
+
+Example:
+
+```java
+String url = "jdbc:mysql://localhost/db";
+```
+
+Changing this could cause security issues.
+
+---
+
+2. **Thread Safety** 🧵
+   Since immutable objects cannot change, they are automatically safe for multithreading.
+
+Multiple threads can use the same string without synchronization.
+
+---
+
+3. **String Constant Pool** 🚀
+   Java stores string literals in a memory-saving area called the **String Pool**.
+
+Example:
+
+```java
+String a = "Java";
+String b = "Java";
+```
+
+Both refer to same object.
+
+If strings were mutable, changing one would affect all references.
+
+---
+
+4. **Caching HashCode** ⚡
+   Strings are widely used as keys in collections like:
+
+* `HashMap`
+* `Hashtable`
+
+Example:
+
+```java
+map.put("name", "Amruth");
+```
+
+Hashcode is cached for faster performance.
+
+If string changed, hashcode would change and retrieval would fail.
+
+---
+
+5. **Class Loading** 📦
+   Java uses strings in class loading:
+
+```java
+Class.forName("MyClass");
+```
+
+If mutable, wrong class could be loaded.
+
+---
+
+### Conclusion
+
+Strings are immutable in Java for:
+
+✅ Security
+✅ Thread safety
+✅ Memory optimization (String Pool)
+✅ Performance
+✅ Safe class loading
+
+That’s why Java designers made `String` immutable.
